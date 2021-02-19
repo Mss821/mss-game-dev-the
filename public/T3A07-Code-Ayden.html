@@ -8,19 +8,21 @@ What we are going to do is take CSS positioning and forms button and make someth
 document.getElementById('mySpan01').style.left = 
   parseInt(document.getElementById('mySpan01').style.left) + 10
 
+
+if(myHitOther('mySpan01', 'mySpan02')){
+//alert('hit')
+document.getElementById('mySpan02').style.left = '-400px'
+}
+
+
 }">
 
 
-<input type=button value="Move Span2 20 pixels right" onClick="{
-  // alert( parseInt(document.getElementById('mySpan02').style.left) )
 
-document.getElementById('mySpan02').style.left = 
-  parseInt(document.getElementById('mySpan02').style.left) + 20
 
-}">
 
-<span id="mySpan01" style="position:absolute; left:100; top:150;"> span 1</span><br>
-<span id="mySpan02" style="position:absolute; left:200; top:150;"> span 2</span><br>
+<span id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30;"> span 1</span><br>
+<span id="mySpan02" style="position:absolute; left:200; top:150; width:45; height:30;"> span 2</span><br>
 
 
 
