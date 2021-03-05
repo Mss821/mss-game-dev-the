@@ -16,6 +16,73 @@
 }"><br><br>
 <span id="mySpan01">...</span>
 <br><br><br>
+<hr>
+
+
+
+</pre>
+<input id="myText03" type=text value=-4 ><br><br>
+<input type=button value="Show X" onclick="{
+	x=document.getElementById('myText03').value
+	myTemp = 'Not something'
+	if(x <=-4) {myTemp = 'Something'}
+	document.getElementById('mySpan03').innerHTML = myTemp
+
+}"><br><br>
+<span id="mySpan03">...</span><br>
+x = <-4
+<br><br><br>
+<hr>
+
+
+
+
+
+</pre>
+<input id="myText04" type=text value=5 ><br><br>
+<input type=button value="Show X" onclick="{
+	x=document.getElementById('myText04').value
+	myTemp = 'Not something'
+	if(x >=5) {myTemp = 'Something'}
+	document.getElementById('mySpan04').innerHTML = myTemp
+
+}"><br><br>
+<span id="mySpan04">...</span><br>
+x = >5
+<br><br><br>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -37,3 +104,27 @@
 
 }"><br>
 <span id="mySpan02">...</span><br><br>
+<hr>
+
+
+
+
+
+
+
+
+<input id="myText05a" type=text value=5 >
+<input id="myText05b" type=text value=-9 ><br>
+<input type=button value="Decide x and y" onclick="{
+	myX = document.getElementById('myText05a')
+	myY = document.getElementById('myText05b')
+	myTemp = 'Something'
+	if (myX > 2 && myY < -4){
+	   myTemp = 'x greater than 2 and y less than -4'
+	} else {
+	 myTemp = 'not'
+	}
+	document.getElementById('mySpan05').innerHTML = myTemp
+
+}"><br>
+<span id="mySpan05">...</span><br><br>
