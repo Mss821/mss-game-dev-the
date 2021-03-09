@@ -1,0 +1,16 @@
+<h1 align=center>T3A14-for-loop-Ayden</h1>
+
+Store this input varrible into x:
+<input id="myText01" value=3 Type=text ><br><br>
+
+<input type=button value="show X" onclick="{
+x=document.getElementById('myText01').value
+let myTemp='';
+for(let i=0; i<x; i++){
+myTemp += 'Loop Number: ' + i + '<br>';
+}
+document.getElementById('mySpan01').innerHTML = myTemp
+
+}"><br><br>
+
+<span id= "mySpan01">...</span><br><br>
