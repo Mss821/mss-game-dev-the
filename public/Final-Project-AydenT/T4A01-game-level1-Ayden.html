@@ -1,4 +1,27 @@
+
+<html>
+<head>
+
 <script>
+
+// Global variables works anywhere in your code
+
+document.myXmove = 5   // amount it moves in pixels
+document.myYmove = 7
+
+document.myXspeed = 50 // speed as a delay in milliseconds bigger is slower
+document.myYspeed = 20 
+
+document.myXtimer = 0;
+document.myYtimer = 0;
+
+
+
+
+
+
+
+
 function myHitOther(my1,my2){
    left1   = parseInt(document.getElementById(my1).style.left)
    right1  = left1 + parseInt(document.getElementById(my1).style.width)
@@ -16,30 +39,136 @@ function myHitOther(my1,my2){
    }
 }
 
-</script>
+
+function myCheckAll(){
+
+
+
+// Bounce of windoow walls
+
+if (parseInt(document.getElementById('mySpan02').style.left) < 10) {  // if we hit the left wall
+    document.myXmove = document.myXmove * -1   // then bounce
+}
+
+if (parseInt(document.getElementById('mySpan02').style.left) + 65 > window.innerWidth) {  // if we hit the right wall
+    document.myXmove = document.myXmove * -1   // then bounce
+}
+
+
+// end of bounce code
+
+  
 
 
 
 
 
-<h1 align=center>T3A07-code-Fred.html</h1>
 
-What we are going to do is take CSS positioning and Forms button and make something that moves across the screen.<br>
+  if(myHitOther('mySpan01', 'mySpan02')){
+    document.getElementById('mySpan01').style.left = '-400px'
+    alert('You lose!')
+    location = 'https://google.ca'
+  }
 
-<input type=button value="Move 10 pixels right" onClick="{
-   //alert( parseInt(document.getElementById('mySpan01').style.left) ) 
-                          
-document.getElementById('mySpan01').style.left = 
-parseInt(document.getElementById('mySpan01').style.left) + 10
+  if(myHitOther('mySpan01', 'mySpan03')){
+    document.getElementById('mySpan01').style.left = '-400px'
+    alert('You lose!')
+    location = 'https://google.ca'
+  }
 
-if(myHitOther('mySpan01', 'mySpan02')){
-  // alert('hit')
-  document.getElementById('mySpan02').style.left = '-400px'
+  // your other checks go here
 
 }
 
+
+function myXAuto(){
+  document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + document.myXmove
+  myCheckAll()
+}
+
+
+</script>
+</head>
+
+
+<body  onKeyDown="{
+     let myAlphaKey = event.key
+     document.getElementById('myDiv01').innerHTML = 'You typed: ' + myAlphaKey.toLowerCase()
+
+
+      if (myAlphaKey.toLowerCase() == 'arrowright') {
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+     }
+
+      if (myAlphaKey.toLowerCase() == 'd') {   // go right
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+      }
+
+      if (myAlphaKey.toLowerCase() == 'a') {   // go left
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 10
+         myCheckAll()
+      }
+
+       if (myAlphaKey.toLowerCase() == 's') {   // go down
+         document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + 10
+         myCheckAll()
+      }
+
+       if (myAlphaKey.toLowerCase() == 'w') {   // go up
+         document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - 10
+         myCheckAll()
+      }
+     
+        
+}">
+
+
+<h1 align=center>T4A01-Game-test-Ayden.html</h1>
+
+
+<input type=button value="Move 10 pixels right" onClick="{
+                        
+  document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+  myCheckAll()
                         
 }">
 
-<span id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30"> span 1</span><br>
-<span id="mySpan02" style="position:absolute; left:200; top:150; width:45; height:30"> span 2</span><br>
+
+<input type=button value="Move 10 pixels Diagonal" onClick="{
+                        
+  document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+  document.getElementById('mySpan01').style.top  = parseInt(document.getElementById('mySpan01').style.top)  - 10
+  myCheckAll()
+                        
+}">
+
+<input type=button value="Move 10 right Auto" onClick="{
+    clearInterval(document.myXtimer)                    
+    document.myXtimer = setInterval( myXAuto , document.myXspeed);
+                        
+}">
+
+<input type=button value="window width" onClick="{
+  alert(window.innerWidth)
+                        
+}">
+
+
+<div id="myDiv01">...</div>
+
+
+<span id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30">
+   Span 1 </span><br>
+<span id="mySpan02" style="position:absolute; left:400; top:150; width:45; height:30"> 
+   Span 2 </span><br>
+<span id="mySpan03" style="position:absolute; left:200; top:150; width:45; height:30"> 
+   Span 3 </span><br>
+
+
+
+
+
+</body>
+</html>
