@@ -5,15 +5,28 @@
 <script>
 
 // Global variables works anywhere in your code
-
+//span 2
 document.myXmove = 5   // amount it moves in pixels
 document.myYmove = 7
 
-document.myXspeed = 50 // speed as a delay in milliseconds bigger is slower
+document.myXspeed = 75 // speed as a delay in milliseconds bigger is slower
 document.myYspeed = 20 
 
 document.myXtimer = 0;
 document.myYtimer = 0;
+
+//Span 3
+
+document.myXmove01 = 5   // amount it moves in pixels
+document.myYmove01 = 7
+
+document.myXspeed01 = 75 // speed as a delay in milliseconds bigger is slower
+document.myYspeed01 = 20 
+
+document.myXtimer01 = 0;
+document.myYtimer01 = 0;
+
+
 
 
 
@@ -54,12 +67,19 @@ if (parseInt(document.getElementById('mySpan02').style.left) + 65 > window.inner
     document.myXmove = document.myXmove * -1   // then bounce
 }
 
+if (parseInt(document.getElementById('mySpan03').style.top) < 10) {  // if we hit the top
+    document.myXmove01 = document.myXmove01 * -1   // then bounce
+}
+
+if (parseInt(document.getElementById('mySpan03').style.top) + 65 > window.innerHeight) {  // if we hit the bottom
+    document.myXmove01 = document.myXmove01 * -1   // then bounce
+}
 
 // end of bounce code
 
   
 
-
+}
 
 
 
@@ -71,20 +91,27 @@ if (parseInt(document.getElementById('mySpan02').style.left) + 65 > window.inner
   }
 
   if(myHitOther('mySpan01', 'mySpan03')){
-    document.getElementById('mySpan01').style.left = '-400px'
-    alert('You lose!')
-    location = 'https://google.ca'
+     document.getElementById('mySpan01').style.left = '-400px'
+     alert('You lose!')
+     location = 'https://google.ca'
+    
   }
 
   // your other checks go here
 
-}
-
-
 function myXAuto(){
   document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + document.myXmove
-  myCheckAll()
+ document.getElementById('mySpan03').style.left = parseInt(document.getElementById('mySpan03').style.left) + document.myXmove01
+  document.getElementById('mySpan03').style.top = parseInt(document.getElementById('mySpan03').style.top) + document.myXmove01
+ myCheckAll()
 }
+function myXAuto01(){
+  document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + document.myXmove
+ document.getElementById('mySpan03').style.left = parseInt(document.getElementById('mySpan03').style.left) + document.myXmove01
+  document.getElementById('mySpan03').style.top = parseInt(document.getElementById('mySpan03').style.top) + document.myXmove01
+ myCheckAll()
+}
+
 
 
 </script>
@@ -128,6 +155,7 @@ function myXAuto(){
 <h1 align=center>T4A01-Game-test-Ayden.html</h1>
 
 
+
 <input type=button value="Move 10 pixels right" onClick="{
                         
   document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
@@ -147,11 +175,16 @@ function myXAuto(){
 <input type=button value="Move 10 right Auto" onClick="{
     clearInterval(document.myXtimer)                    
     document.myXtimer = setInterval( myXAuto , document.myXspeed);
+    clearInterval(document.myXtimer01)                    
+    document.myXtimer01 = setInterval( myXAuto01 , document.myXspeed01);
                         
 }">
 
 <input type=button value="window width" onClick="{
   alert(window.innerWidth)
+}">
+<input type=button value="window height" onClick="{
+  alert(window.innerHeight)
                         
 }">
 
