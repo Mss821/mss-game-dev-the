@@ -1,5 +1,3 @@
-
-
 <body onMouseMove="{myMoveFunction(event)}">
 
 <style>
@@ -64,21 +62,19 @@ if (parseInt(document.getElementById('mySpan02').style.top) + 65 > window.innerH
 
 
 // end of bounce code
-  
   if(myHitOther('mySpan01', 'mySpan02')){
     document.getElementById('mySpan02').style.left = '-400px'
     alert('You Win!')
-    
+    location = 'https://mss821.github.io/mss-game-dev-the/public/Lose-Screen-Ayden.html'
   }
 
   if(myHitOther('mySpan01', 'mySpan03')){
-    document.getElementById('mySpan01').style.left = '-400px'
     document.getElementById('mySpan03').style.left = '-400px'
-    alert('You LOSE!')
-    Location = 'https://google.ca'
+    alert('You Lose!')
+    location = 'https://mss821.github.io/mss-game-dev-the/public/Lose-Screen-Ayden.html'
   }
-
   // your other checks go here
+
 
 }
 
